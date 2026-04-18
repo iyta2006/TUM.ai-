@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script"; // Added Next.js Script optimization
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -34,15 +33,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* ========================================== */}
         {/* HAPPYROBOT AI WIDGET */}
         {/* ========================================== */}
-        <Script
+        <script
           src="https://hrchat.eu.happyrobot.ai/latest/loader.bundle.js"
           data-use-case-id="019da026-5663-7920-a2d0-42c6b5232f92"
           data-logo="https://media.licdn.com/dms/image/v2/C4E0BAQGTKPbjmQko9A/company-logo_200_200/company-logo_200_200/0/1675288059544/tum_ai_logo?e=2147483647&v=beta&t=9NB6NzuItbO5iPikn2cXOq9-a4f_bVvB_pXNsh-dtwc"
           data-primary-color="#1a1a1a"
           data-welcome-message=""
-          data-env="development"
-          strategy="afterInteractive"
-        />
+          data-env="production"
+          defer
+        ></script>
         {/* ========================================== */}
       </body>
     </html>
