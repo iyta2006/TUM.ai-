@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           data-logo="https://media.licdn.com/dms/image/v2/C4E0BAQGTKPbjmQko9A/company-logo_200_200/company-logo_200_200/0/1675288059544/tum_ai_logo?e=2147483647&v=beta&t=9NB6NzuItbO5iPikn2cXOq9-a4f_bVvB_pXNsh-dtwc"
           data-primary-color="#1a1a1a"
           data-welcome-message=""
-          data-env="development"
+          data-env="production"
           strategy="afterInteractive"
         />
         {/* ========================================== */}
