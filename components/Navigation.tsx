@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ShoppingCart, Phone, ChevronDown, Menu, X } from "lucide-react";
 import { useCartStore } from "@/lib/store/cart";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // ⬅️ erweitert
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -17,6 +17,13 @@ export default function Navigation() {
   const pathname = usePathname();
   const itemCount = useCartStore((s) => s.itemCount());
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // ⬇️ NEU
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-[#e2e8f0] shadow-sm">
@@ -70,7 +77,8 @@ export default function Navigation() {
             >
               <ShoppingCart className="w-5 h-5" />
               <span className="hidden sm:inline">Cart</span>
-              {itemCount > 0 && (
+
+              {mounted && itemCount > 0 && (  // ⬅️ FIX
                 <span className="absolute -top-2 -right-2 sm:static sm:ml-0 flex items-center justify-center w-5 h-5 bg-[#f97316] text-white text-xs rounded-full font-bold">
                   {itemCount}
                 </span>
